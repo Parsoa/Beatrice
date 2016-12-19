@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Far.KoodakBold';
+    src:        url('http://www.fontfarsi.ir/Content/Fonts/EOT/Far_KoodakBold.eot');
+    src: local('☺'),
+                url('http://www.fontfarsi.ir/Content/Fonts/WOFF/Far_KoodakBold.woff') format('woff'),
+                url('http://www.fontfarsi.ir/Content/Fonts/TTF/Far_KoodakBold.ttf') format('truetype'),
+                url('http://www.fontfarsi.ir/Content/Fonts/SVG/Far_KoodakBold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.default_font {
+	font-family: 'IranianSansRegular';
+}
+
+.text_size_extra_extra_large {
+	font-size: 48px;
+}
+
+.text_size_extra_large {
+	font-size: 36px;
+}
+
+.text_size_large {
+	font-size: 24px;
+}
+
+.text_size_normal {
+	font-size: 16px;
+}
+
+.text_size_small {
+	font-size: 12px;
+}
+
+.text_view {
+	font-family: 'IranianSansRegular';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.text_align_center {
+	text-align: center;
+}
+
+.text_align_left {
+	text-align: left;
+}
+
+.text_align_right {
+	text-align: right;
+}
+
+.text_align_justify {
+	text-align: justify;
+}
+
+.text_style_bold {
+	font-style: bold;
+}
+
+.line_height_small {
+	line-height: 100% ;
+}
+
+.line_height_normal {
+	line-height: 150% ;
+}
+
+.line_height_big {
+	line-height: 200% ;
+}
+
+.text_direction_rtl {
+	direction: rtl ;
+}

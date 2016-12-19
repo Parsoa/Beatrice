@@ -1,0 +1,18 @@
+
+.workflow_item {
+
+}
+
+.workflow_table {
+	width: 600px ;
+}
+
+.workflow_input_output_table {
+	max-height: 200px ;
+	overflow: auto ;
+}
+
+.workflow_step {
+	height: 600px ;
+	overflow-x: auto ;
+}

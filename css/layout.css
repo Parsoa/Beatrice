@@ -1,0 +1,249 @@
+.layout_weight_0 {
+    -webkit-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+}
+
+.layout_weight_1 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.layout_weight_2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+
+.layout_weight_3 {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+}
+
+.layout_weight_4 {
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4;
+}
+
+.padding_small {
+    padding: 10px;
+}
+
+.padding_normal {
+    padding: 20px;
+}
+
+.padding_large {
+    padding: 40px;
+}
+
+.padding_extra_large {
+    padding: 40px;
+}
+
+.padding_extra_extra_large {
+    padding: 80px;
+}
+
+.padding_none {
+    padding: 0px;
+}
+
+.no_padding_right {
+    padding-right: 0px;
+}
+
+.no_padding_left {
+    padding-left: 0px;
+}
+
+.no_padding_top {
+    padding-top: 0px;
+}
+
+.no_padding_bottom {
+    padding-bottom: 0px;
+}
+
+.margin_small {
+    margin: 10px;
+}
+
+.margin_normal {
+    margin: 20px;
+}
+
+.margin_large {
+    margin: 40px;
+}
+
+.margin_extra_large {
+    margin: 80px;
+}
+
+.margin_none {
+    margin: 0px;
+}
+
+.no_margin_right {
+    margin-right: 0px;
+}
+
+.no_margin_left {
+    margin-left: 0px;
+}
+
+.no_margin_top {
+    margin-top: 0px;
+}
+
+.no_margin_bottom {
+    margin-bottom: 0px;
+}
+
+.children_align_center {
+    justify-content: center;
+    -webkit-justify-content: center;
+    /* Safari 6.1+ */
+    align-items: center;
+    -webkit-align-items: center;
+    /* Safari 7.0+ */
+}
+
+.flex_container_row {
+    display: flex;
+    display: -webkit-flex;
+    /* Safari */
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    /* Safari 6.1+ */
+    justify-content: center;
+    -webkit-justify-content: center;
+    /* Safari 6.1+ */
+    align-items: center;
+    -webkit-align-items: center;
+    /* Safari 7.0+ */
+    align-content: center;
+    -webkit-align-content: center;
+    flex-wrap: wrap;
+}
+
+.display_flex {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.flex_container_column {
+    display: flex;
+    display: -webkit-flex;
+    /* Safari */
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    /* Safari 6.1+ */
+    justify-content: center;
+    -webkit-justify-content: center;
+    /* Safari 6.1+ */
+    align-items: center;
+    -webkit-align-items: center;
+    /* Safari 7.0+ */
+    align-content: center;
+    -webkit-align-content: center;
+    flex-wrap: wrap;
+}
+
+.flex_no_wrap {
+    flex-wrap: nowrap ;
+}
+
+.flex_no_shrink {
+    flex-shrink: 0 ;
+}
+
+.justify_content_space_between {
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    /* Safari 6.1+ */
+}
+
+.align_content_space_around {
+    justify-content: space-around;
+    -align-align-content: space-around;
+    /* Safari 6.1+ */
+}
+
+.align_items_start {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+
+.table_width_match_parent {
+    table-layout:fixed ;
+    width:100% ;
+}
+
+.width_match_parent {
+    width: 100% ;
+}
+
+.height_match_parent {
+    height: 100%;
+}
+
+.image_fill_width {
+    max-width: 100%;
+    height: auto;
+}
+
+.image_fill_height {
+    max-height: 100%;
+    width: auto;
+}
+
+.width_auto {
+    width: auto;
+}
+
+.height_auto {
+    height: auto;
+}
+
+.width_75_parent {
+    width: 75%;
+}
+
+.width_50_parent {
+    width: 50%;
+}
+
+.position_relative {
+    position: relative ;
+}
+
+.position_absolute {
+    position: absolute ;
+}
+
+.position_fixed {
+    position: fixed ;
+}
+
+.box_sizing_border {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.background_position_center {
+    background-position: center;
+}
+
+.background_size_cover {
+    background-size: cover;
+}
+
+.background_repeat_none {
+    background-repeat: no-repeat;
+}
