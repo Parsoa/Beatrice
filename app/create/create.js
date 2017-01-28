@@ -21,7 +21,7 @@ global.head_step = null ;
 global.step_counter = 0 ;
 
 let pipeline_name = 'test_pipeline' ;
-let export_directory = '/Users/Parsoa/Desktop/Beatrice' ;
+// let export_directory = '/Users/Parsoa/Desktop/Beatrice' ;
 let library_visible = true ;
 
 // ========================================================================================================== \\
@@ -83,6 +83,8 @@ function add_step_handler(event) {
 // ========================================================================================================== \\
 
 function load_pipeline() {
+	var export_directory = ipcRenderer.sendSync('dialog-request', null) ;
+	console.log(export_directory)
 	var path = export_directory + '/' + pipeline_name + '.bpl' ;
 	var pipeline = JSON.parse(node_fs.readFileSync(path)) ;
 	pipeline_name = pipeline.name ;
@@ -104,7 +106,8 @@ function load_pipeline() {
 
 function export_pipeline(event) {
 	if (validate()) {
-		// result = ipcRenderer.sendSync('dialog-request', null) ;
+		var export_directory = ipcRenderer.sendSync('dialog-request', null) ;
+		console.log(export_directory) ;
 		var pipeline = {} ;
 		pipeline['name'] = pipeline_name ;
 		pipeline['steps'] = [] ;

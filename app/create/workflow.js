@@ -7,7 +7,7 @@ let $ = require('jQuery');
 // ========================================================================================================== \\
 // ========================================================================================================== \\
 
-function Input(workflow, id, type) {
+function Input(workflow, id, type, default_value) {
 	this.workflow = workflow ;
 	this.id = id ;
 	this.type = type ;
@@ -17,6 +17,7 @@ function Input(workflow, id, type) {
 	this.doc = '' ;
 	this.selected_id = '' ;
 	this.previous_text_value = '' ;
+	this.default_value = default_value ;
 }
 
 Input.prototype.flatten = function() {
@@ -117,6 +118,7 @@ function Workflow(name, directory, step, index, previous) {
 	this.next = null ;
 	this.previous = previous ;
 	this.input_selections = {} ;
+	this.requirements = [] ;
 	if (this.previous != null) {
 		this.previous.next = this ;
 	}
@@ -168,7 +170,7 @@ Workflow.prototype.import_inputs = function(inputs) {
 	console.log('Loading inputs') ;
 	for (var i in inputs) {
 		var input = inputs[i] ;
-		var new_input = new Input(this, input.id, input.type, null) ;
+		var new_input = new Input(this, input.id, input.type) ;
 		new_input.is_linked = input.is_linked ;
 		new_input.value = input.value ;
 		new_input.selected_id = input.selected_id ;
@@ -180,7 +182,7 @@ Workflow.prototype.import_outputs = function(outputs) {
 	console.log('Loading outputs') ;
 	for (var i in outputs) {
 		var output = outputs[i] ;
-		this.outputs.push(new Output(this, output.id, output.type, null)) ;
+		this.outputs.push(new Output(this, output.id, output.type)) ;
 	}
 }
 
@@ -191,6 +193,7 @@ Workflow.prototype.flatten = function() {
 	flat_workflow['index'] = this.index ;
 	flat_workflow['inputs'] = [] ;
 	flat_workflow['outputs'] = [] ;
+	flat_workflow['requirements'] = this.requirements ;
 	for (var i in this.inputs) {
 		flat_workflow['inputs'].push(this.inputs[i].flatten()) ;
 	}
@@ -204,6 +207,9 @@ Workflow.prototype.flatten = function() {
 
 Workflow.prototype.read_all_properties = function() {
 	var doc = yaml.safeLoad(node_fs.readFileSync(this.directory + this.name + '.cwl', 'utf8')) ;
+	if (doc.requirements != undefined) {
+		this.requirements = doc.requirements ;
+	}
 	console.log(doc) ;
 	if (doc.outputs != undefined) {
 		for (var property in doc.outputs) {
@@ -212,7 +218,7 @@ Workflow.prototype.read_all_properties = function() {
 	}
 	if (doc.inputs != undefined) {
 		for (var property in doc.inputs) {
-			this.inputs.push(new Input(this, property, String(doc.inputs[property].type))) ;
+			this.inputs.push(new Input(this, property, String(doc.inputs[property].type), doc.inputs[property].default)) ;
 		}
 	}
 }
@@ -292,6 +298,12 @@ Workflow.prototype.show_text_area = function(input) {
 }
 
 // ========================================================================================================== \\
+
+Workflow.prototype.initialize_default_values = function(input) {
+	if (input.default != undefined) {
+		document.getElementById(this.get_input_text_area_id(input).substring(1)).value = input.default_value ;
+	}
+}
 
 Workflow.prototype.initialize_input_selectors = function() {
 	if (this.step.previous != null) {

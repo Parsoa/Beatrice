@@ -54,7 +54,16 @@ app.on('window-all-closed', () => {
 
 ipc.on('dialog-request', (event, arg) => {
     console.log('Received dialog request') ;
-    dialog.showSaveDialog({title: 'workload.cwl'}) ;
+    dialog.showOpenDialog({
+         properties: ['openDirectory'],
+    }, function(dir_names) {
+        if (dir_names == undefined) {
+            event.returnValue = undefined ;
+        } else {
+            var dir_name = dir_names[0] ;
+            event.returnValue = dir_name ;
+        }
+    }) ;
 }) ;
 
 ipc.on('load-page', (event, arg) => {
