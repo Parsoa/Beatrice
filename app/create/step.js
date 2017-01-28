@@ -205,6 +205,18 @@ Step.prototype.get_all_inputs = function() {
 					tmp[field] = input[field] ;
 				}
 			}
+			if (tmp.type.endsWith('?')) {
+				type = tmp.type.substring(0, tmp.type.length - 1) ;
+				tmp.type = [] ;
+				tmp.type.push(type) ;
+				tmp.type.push("null") ;
+			}
+			else if (tmp.type.endsWith('[]')) {
+				type = tmp.type.substring(0, tmp.type.length - 2) ;
+				tmp.type = {} ;
+				tmp.type['type'] = "array" ;
+				tmp.type['items'] = type ;
+			}
 			tmp.id = input.workflow.name + '__' + input.id ;
 			all_inputs.push(tmp) ;
 		}
@@ -225,6 +237,18 @@ Step.prototype.get_all_outputs = function() {
 				if (output[field] != undefined) {
 					tmp[field] = output[field] ;
 				}
+			}
+			if (tmp.type.endsWith('?')) {
+				type = tmp.type.substring(0, tmp.type.length - 1) ;
+				tmp.type = [] ;
+				tmp.type.push(type) ;
+				tmp.type.push("null") ;
+			}
+			else if (tmp.type.endsWith('[]')) {
+				type = tmp.type.substring(0, tmp.type.length - 2) ;
+				tmp.type = {} ;
+				tmp.type['type'] = "array" ;
+				tmp.type['items'] = type ;
 			}
 			tmp.id = output.workflow.name + '__' + output.id ;
 			all_outputs.push(tmp) ;

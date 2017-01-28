@@ -22,6 +22,7 @@ function export_pipeline(meta, base_directory, head_step) {
 	console.log('Exporting ... ') ;
 	pipeline['class'] = 'Workflow' ;
 	pipeline['cwlVersion'] = cwl_version ;
+	pipeline['class'] = 'Workflow' ;
 	pipeline['description'] = meta.description ;
 	pipeline['inputs'] = [] ;
 	pipeline['outputs'] = [] ;
@@ -66,8 +67,9 @@ function export_step(step, base_directory) {
 	var workflow = step.get_first_workflow() ;
 	var pipeline = {} ;
 
-	pipeline['title'] = step.name ;
+	// pipeline['title'] = step.name ;
 	pipeline['cwlVersion'] = cwl_version ;
+	pipeline['class'] = 'Workflow' ;
 	pipeline['description'] = step.description ;
 	pipeline['inputs'] = step.get_all_inputs() ;
 	pipeline['outputs'] = step.get_all_outputs() ;
